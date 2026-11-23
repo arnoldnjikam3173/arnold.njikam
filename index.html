@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fritz Meno Njikam | Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Fritz Arnold Meno Njikam, data analyst skilled in SQL, Python, Excel, and Power BI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f1b2d;
+      --text: #33415c;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --bg: #ffffff;
+      --soft: #f5f7fb;
+      --accent: #0d6e6e;
+      --accent-dark: #0a5656;
+      --accent-soft: #e6f2f2;
+      --radius: 12px;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(6px);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; color: var(--ink); font-size: 17px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--text); font-size: 15px; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-weight: 600; font-size: 15px; border: 1px solid var(--accent);
+      transition: background .15s, color .15s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); color: #fff; }
+    .btn-outline { color: var(--accent); background: #fff; }
+    .btn-outline:hover { background: var(--accent-soft); }
+    .nav-links .btn { padding: 8px 16px; color: #fff; }
+
+    /* Hero */
+    .hero { padding: 80px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 260px; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+    h1 { font-size: 46px; line-height: 1.15; color: var(--ink); font-weight: 700; margin-bottom: 18px; }
+    .lead { font-size: 18px; max-width: 600px; margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .meta { font-size: 14px; color: var(--muted); display: flex; gap: 20px; flex-wrap: wrap; }
+    .photo {
+      width: 260px; height: 260px; border-radius: 50%; object-fit: cover; object-position: center top;
+      border: 6px solid var(--accent-soft);
+    }
+
+    /* Highlights */
+    .highlights { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .hl { padding: 28px 24px; border-right: 1px solid var(--line); }
+    .hl:last-child { border-right: none; }
+    .hl strong { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; }
+    .hl span { font-size: 14px; color: var(--muted); }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .section-title { font-size: 28px; color: var(--ink); font-weight: 700; margin-bottom: 8px; }
+    .section-sub { color: var(--muted); margin-bottom: 36px; max-width: 640px; }
+
+    /* Projects */
+    .projects { display: grid; gap: 24px; }
+    .project {
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+      display: grid; grid-template-columns: 1fr 220px; gap: 28px;
+      transition: box-shadow .15s, border-color .15s;
+    }
+    .project:hover { border-color: #cbd5e1; box-shadow: 0 6px 24px rgba(15,27,45,0.06); }
+    .project-tag { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+    .project h3 { font-size: 21px; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+    .project p { margin-bottom: 12px; }
+    .project ul { padding-left: 18px; margin-bottom: 4px; }
+    .project li { margin-bottom: 6px; }
+    .side { border-left: 1px solid var(--line); padding-left: 24px; display: flex; flex-direction: column; gap: 18px; }
+    .side h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 13px; padding: 4px 10px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent-dark); font-weight: 500;
+    }
+    .links { display: flex; flex-direction: column; gap: 8px; font-weight: 600; font-size: 15px; }
+    .note { font-size: 13px; color: var(--muted); }
+
+    /* Experience */
+    .timeline { display: grid; gap: 20px; }
+    .job { display: grid; grid-template-columns: 200px 1fr; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line); }
+    .job:first-child { border-top: none; padding-top: 0; }
+    .when { font-size: 14px; color: var(--muted); font-weight: 500; }
+    .job h3 { font-size: 18px; color: var(--ink); }
+    .org { color: var(--accent); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+    .job ul { padding-left: 18px; }
+    .job li { margin-bottom: 4px; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skill-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .skill-card h3 { font-size: 16px; color: var(--ink); margin-bottom: 14px; }
+    .alt { background: var(--soft); }
+
+    /* Education */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .edu-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .edu-card h3 { font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+    .edu-card .org { margin-bottom: 10px; }
+    .edu-card ul { list-style: none; }
+    .edu-card li { padding: 8px 0; border-top: 1px solid var(--line); }
+    .edu-card li:first-child { border-top: none; padding-top: 0; }
+    .edu-card small { color: var(--muted); display: block; }
+
+    /* Contact */
+    .contact { background: var(--ink); color: #cbd5e1; text-align: center; }
+    .contact .section-title { color: #fff; }
+    .contact .section-sub { color: #94a3b8; margin: 0 auto 28px; }
+    .contact .hero-actions { justify-content: center; margin-bottom: 0; }
+    .contact .btn-outline { background: transparent; color: #fff; border-color: #475569; }
+    .contact .btn-outline:hover { background: #1e2b40; }
+    footer { background: var(--ink); color: #64748b; text-align: center; font-size: 13px; padding: 0 0 28px; }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .photo { width: 180px; height: 180px; order: -1; }
+      h1 { font-size: 36px; }
+      .project { grid-template-columns: 1fr; }
+      .side { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 20px; }
+      .job { grid-template-columns: 1fr; gap: 6px; }
+      .skills-grid, .edu-grid, .hl-grid { grid-template-columns: 1fr; }
+      .hl { border-right: none; border-bottom: 1px solid var(--line); }
+      .hl:last-child { border-bottom: none; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="wrap">
+      <a href="#top" class="brand">Fritz Meno Njikam</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-primary" href="assets/Fritz_Meno_Njikam_Data_Analyst_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Data Analyst</span>
+          <h1>Hi, I'm Fritz.<br>I turn raw data into clear answers.</h1>
+          <p class="lead">I'm completing an M.S. in Computer Science and Quantitative Methods (Mathematical Finance) at Austin Peay State University. I use SQL, Python, Excel, and Power BI to clean data, build predictive models, and report findings in dashboards.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View my projects</a>
+            <a class="btn btn-outline" href="assets/Fritz_Meno_Njikam_Data_Analyst_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+          </div>
+          <div class="meta">
+            <span>Clarksville, TN</span>
+            <span>Open to internships and entry-level roles</span>
+            <span>Available from February 2027</span>
+          </div>
+        </div>
+        <img class="photo" src="assets/profile.jpg" alt="Portrait of Fritz Meno Njikam">
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="highlights">
+      <div class="wrap hl-grid">
+        <div class="hl"><strong>Data Analysis Intern</strong><span>U.S. Space &amp; Rocket Center, Summer 2026</span></div>
+        <div class="hl"><strong>M.S. CS &amp; Quantitative Methods</strong><span>Austin Peay State University, expected Dec 2026</span></div>
+        <div class="hl"><strong>IBM Data Analyst Certificate</strong><span>Coursera, in progress</span></div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="wrap">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">A selection of work from my internship and the IBM Data Analyst Professional Certificate.</p>
+
+        <div class="projects">
+
+          <article class="project">
+            <div>
+              <div class="project-tag">Internship project</div>
+              <h3>Camper Retention Analysis and Prediction</h3>
+              <p>The U.S. Space &amp; Rocket Center wanted to understand which Space Camp participants come back, so it could improve engagement and retention.</p>
+              <ul>
+                <li>Explored and analyzed camper attendance and survey data from 2021 to 2026 with Python (Pandas) and SQL</li>
+                <li>Built and compared logistic regression, decision tree, and random forest models to predict returning campers; random forest performed best</li>
+                <li>Delivered Power BI dashboards and data-driven recommendations for the retention strategy</li>
+              </ul>
+            </div>
+            <aside class="side">
+              <div>
+                <h4>Tools</h4>
+                <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span><span class="tag">Power BI</span></div>
+              </div>
+              <div>
+                <h4>Links</h4>
+                <p class="note">Built on internal company data, so the code and dashboards are not public.</p>
+              </div>
+            </aside>
+          </article>
+
+          <article class="project">
+            <div>
+              <div class="project-tag">Python · IBM Data Analyst Certificate</div>
+              <h3>Tesla &amp; GameStop Stock and Revenue Analysis</h3>
+              <p>Acting as an analyst for an investment firm, I gathered financial data from several sources to compare share price and company revenue over time.</p>
+              <ul>
+                <li>Extracted historical stock prices from Yahoo Finance</li>
+                <li>Scraped quarterly revenue tables from web pages with BeautifulSoup</li>
+                <li>Cleaned the data in Pandas and plotted stock price against revenue with Matplotlib to identify trends</li>
+              </ul>
+            </div>
+            <aside class="side">
+              <div>
+                <h4>Tools</h4>
+                <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">BeautifulSoup</span><span class="tag">Matplotlib</span><span class="tag">Web scraping</span></div>
+              </div>
+              <div>
+                <h4>Links</h4>
+                <div class="links">
+                  <!-- TODO: replace # with the link to this project's GitHub repository or notebook -->
+                  <a href="#" target="_blank" rel="noopener">View code on GitHub →</a>
+                </div>
+              </div>
+            </aside>
+          </article>
+
+          <article class="project">
+            <div>
+              <div class="project-tag">Excel · IBM Data Analyst Certificate</div>
+              <h3>Fleet Inventory Data Analysis</h3>
+              <p>Acting as a junior data analyst for a local government office, I prepared and analyzed a real-world fleet inventory dataset.</p>
+              <ul>
+                <li>Cleaned the data by fixing missing values, duplicates, and inconsistent formatting</li>
+                <li>Built pivot tables to analyze equipment usage and distribution across departments</li>
+                <li>Prepared the cleaned data for dashboards and reporting</li>
+              </ul>
+            </div>
+            <aside class="side">
+              <div>
+                <h4>Tools</h4>
+                <div class="tags"><span class="tag">Excel</span><span class="tag">Pivot tables</span><span class="tag">XLOOKUP</span><span class="tag">Data cleaning</span></div>
+              </div>
+              <div>
+                <h4>Links</h4>
+                <div class="links">
+                  <!-- TODO: replace # with the link to the workbook or a screenshot on GitHub -->
+                  <a href="#" target="_blank" rel="noopener">View workbook →</a>
+                </div>
+              </div>
+            </aside>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="alt">
+      <div class="wrap">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-sub">Hands-on analytics work, plus experience teaching statistics to undergraduates.</p>
+
+        <div class="timeline">
+          <div class="job">
+            <div class="when">Jun 2026 – Aug 2026</div>
+            <div>
+              <h3>Data Analysis Intern</h3>
+              <div class="org">U.S. Space &amp; Rocket Center – Space Camp · Huntsville, AL</div>
+              <ul>
+                <li>Performed EDA and statistical analysis on camper attendance and survey data with Python and SQL</li>
+                <li>Built predictive models of camper retention and shared results through Power BI dashboards</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job">
+            <div class="when">Jan 2025 – Present</div>
+            <div>
+              <h3>Graduate Teaching Assistant</h3>
+              <div class="org">Austin Peay State University · Clarksville, TN</div>
+              <ul>
+                <li>Explain variance, hypothesis testing, and data interpretation to undergraduate statistics students</li>
+                <li>Collaborate with instructors on lesson pacing, grading, and monitoring of student progress</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job">
+            <div class="when">Sep 2025 – Sep 2026</div>
+            <div>
+              <h3>Peer Tutor – CoReq Leader</h3>
+              <div class="org">Austin Peay State University · Clarksville, TN</div>
+              <ul>
+                <li>Helped students build study plans, note-taking strategies, and time management skills</li>
+                <li>Maintained accurate records of tutoring sessions and reported progress to supervisors</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-sub">The tools and methods I use in my projects.</p>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Programming</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">BeautifulSoup</span><span class="tag">SQL</span><span class="tag">R</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Analytics tools</h3>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">Pivot tables</span><span class="tag">XLOOKUP / VLOOKUP</span><span class="tag">Dashboards</span><span class="tag">Power BI</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Methods</h3>
+            <div class="tags"><span class="tag">EDA</span><span class="tag">Data cleaning</span><span class="tag">Hypothesis testing</span><span class="tag">Regression</span><span class="tag">Predictive modeling</span><span class="tag">Web scraping</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="alt">
+      <div class="wrap">
+        <h2 class="section-title">Education &amp; certifications</h2>
+        <p class="section-sub">Graduate studies in computing and quantitative finance, plus industry certifications.</p>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <h3>M.S. in Computer Science and Quantitative Methods</h3>
+            <div class="org">Austin Peay State University · Expected Dec 2026</div>
+            <p>Concentration in Mathematical Finance. Coursework: Financial Derivatives, Risk &amp; Interest Rate Models, Probability &amp; Statistics, Advanced Machine Learning I, Regression.</p>
+          </div>
+          <div class="edu-card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>IBM Data Analyst Professional Certificate<small>IBM / Coursera · In progress</small></li>
+              <li>Risk Analysis Certificate<small>Austin Peay State University · 2026</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2 class="section-title">Let's talk</h2>
+        <p class="section-sub">I'm looking for data analyst internships and entry-level roles starting in February 2027. I'd be glad to hear from you.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:menonjikam1@gmail.com">menonjikam1@gmail.com</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/meno-njikam-arnold" target="_blank" rel="noopener">LinkedIn</a>
+          <!-- TODO: replace # with your GitHub profile link -->
+          <a class="btn btn-outline" href="#" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Fritz Arnold Meno Njikam</div>
+  </footer>
+
+</body>
+</html>
